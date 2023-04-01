@@ -34,11 +34,12 @@ jobs:
           org_name=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
           if [ ! -f "./MyApp/wwwroot/CNAME" ] && [ ! -z "$custom_domain" ] 
           then
+            echo "ssg_base_href=$(echo https://$org_name.github.io/$repo_name/)" 
             echo "ssg_base_href=$(echo https://$org_name.github.io/$repo_name/)" >> $GITHUB_ENV
           else
             if [ -z "$custom_domain" ]
             then
-              # Persist CNAME settings
+              ech "Persist CNAME $custom_domain to ./MyApp/wwwroot/CNAME"
               echo "$custom_domain" >> ./MyApp/wwwroot/CNAME
             fi
           fi
