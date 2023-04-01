@@ -1,4 +1,4 @@
-# razor-ssg
+# ssg-test
 
 .NET 6.0 razor-ssg Static Generated Razor Pages Project Template
 
